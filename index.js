@@ -73,6 +73,14 @@ app.get("/products", (req, res) => {
   res.json(products);
 });
 
+app.get("/products/:id", (req, res) => {
+  const { id } = req.params
+
+  const item = products.find((value) => value.id == id)
+
+  res.json(item)
+})
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
